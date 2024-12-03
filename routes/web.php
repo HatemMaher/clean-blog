@@ -12,7 +12,11 @@ Route::get('/about', [AboutController::class,'about']);
 
 Route::get('/contact', [ContactController::class,'contact']);
 
+Route::post('/send-message', [ContactController::class,'sendMessage']);
+
+
 Route::get('/samplePosts', [SamplePostController::class,'samplePosts']);
+
 
 // Route::get('/about', [AboutController::class,'about']);
 
