@@ -17,6 +17,8 @@ Route::post('/send-message', [ContactController::class,'sendMessage']);
 
 Route::get('/samplePosts', [SamplePostController::class,'samplePosts']);
 
+Route::get('/samplePosts/{post}', [SamplePostController::class,'show']); 
+
 
 // Route::get('/about', [AboutController::class,'about']);
 

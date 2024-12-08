@@ -35,27 +35,39 @@
                                         {{session('success')}}
                                     </div>
                                 @endif
+
+                                @if($errors->any)
+                                    @foreach ($errors->all() as $error)
+{{--                                     
+                                        <div class="alert alert-danger text-center p-1">{{$error}}</div> --}}
+                                    @endforeach
+                                @enderror
                                 <div class="form-floating">
                                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" name="name" />
                                     <label for="name">Name</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                    @error('name')
+                                    <div class="text-danger" data-sb-feedback="name:required">{{$message}}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" name="email" />
                                     <label for="email">Email address</label>
                                     <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                                </div>
+                                    @error('email')
+                                    <div class="text-danger" data-sb-feedback="name:required">{{$message}}</div>
+                                    @enderror                                </div>
                                 <div class="form-floating">
                                     <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" name="phone" />
                                     <label for="phone">Phone Number</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                                </div>
+                                    @error('phone')
+                                    <div class="text-danger" data-sb-feedback="name:required">{{$message}}</div>
+                                    @enderror                                </div>
                                 <div class="form-floating">
                                     <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required" name="content" ></textarea>
                                     <label for="message">Message</label>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                                </div>
+                                    @error('message')
+                                    <div class="text-danger" data-sb-feedback="name:required">{{$message}}</div>
+                                    @enderror                                </div>
                                 <br />
                                 <!-- Submit success message-->
                                 <!---->
